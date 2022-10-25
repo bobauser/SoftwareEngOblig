@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestKlasse {
     LeapYear sun = new LeapYear();
-    @Test
+
     public void TestSomething() {
         //I had a pretty small code at the start, with just booleans and returns true/false if leap year
         //However I made it overcomplicated to test every aspect of the sub-criterias, as like "is divisible by 100 but not 400 = not leapyear"
@@ -17,7 +17,7 @@ public class TestKlasse {
         Is_Not_Divisible_By_4();
         Is_Divisible_By_100_Not_400();
     }
-
+    @Test
     void Is_Divisible_With_4_Not_100() {
         //This test should return the number 2 as 1980 can be divided by 4 but not 100
         assertEquals(2, sun.isLeapYear(1980));
@@ -27,15 +27,17 @@ public class TestKlasse {
         assertEquals(1, sun.isLeapYear(1900));
         assertFalse(sun.test_number_for_leapyear(1)); //here we do another doublecheck, returns false if NOT a leapyear
     }
+    @Test
     void Is_Divisible_With_400() {
         //This test should return 3 as 2000 is a century, and if it is a leap year, should be divisible by both 100 and 400
         assertEquals(3, sun.isLeapYear(2000));
     }
+    @Test
     void Is_Not_Divisible_By_4() {
         //This test should return 4 as 2005 cannot be divided by 4
         assertEquals(4, sun.isLeapYear(2005));
     }
-
+    @Test
     void Is_Divisible_By_100_Not_400() {
         //This test should return 1 as 2100 is divisible by 100 but not 400
         assertEquals(1, sun.isLeapYear(2100));
